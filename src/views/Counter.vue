@@ -1,5 +1,5 @@
 <template>
-  <my-counter :initialCount="initialCount" @onCounterValueIsTen="myEvent"></my-counter>
+  <my-counter :count="count" @onChangeCount="changeCount"></my-counter>
 </template>
 
 <script>
@@ -9,16 +9,19 @@ export default {
   name: 'counter',
   data: function () {
     return {
-      initialCount: 6
+      count: 0
     }
   },
   components: {
     MyCounter
   },
   methods: {
-    myEvent () {
-      console.log('Soy el componente padre, el contador de mi componente hijo es 10')
-      this.initialCount = 0
+    changeCount (count) {
+      this.count = count
+      if (this.count === 10) {
+        this.count = 0
+        console.log('Reseteamos count!')
+      }
     }
   }
 }

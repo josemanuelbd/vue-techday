@@ -12,36 +12,19 @@
 export default {
   name: 'my-counter',
   props: [
-    'initialCount'
+    'count'
   ],
-  data: function () {
-    return {
-      count: this.initialCount
-    }
-  },
   computed: {
     oddEven: function () {
       return (this.count % 2 === 0 ? 'par' : 'impar')
     }
   },
-  watch: {
-    initialCount: function (newValue) {
-      this.count = newValue
-    }
-  },
   methods: {
     decrement () {
-      this.count -= 1
-      this.isCounterValueTen()
+      this.$emit('onChangeCount', this.count - 1)
     },
     increment () {
-      this.count += 1
-      this.isCounterValueTen()
-    },
-    isCounterValueTen () {
-      if (this.count === 10) {
-        this.$emit('onCounterValueIsTen')
-      }
+      this.$emit('onChangeCount', this.count + 1)
     }
   }
 }
