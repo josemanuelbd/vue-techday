@@ -21,10 +21,10 @@ export default {
   },
   methods: {
     decrement () {
-      this.$emit('onChangeCount', this.count - 1)
+      this.$emit('onDecrement')
     },
     increment () {
-      this.$emit('onChangeCount', this.count + 1)
+      this.$emit('onIncrement')
     }
   }
 }
