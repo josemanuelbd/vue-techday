@@ -9,6 +9,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import MyCounter from '@/components/MyCounter.vue'
+import { CounterActionTypes } from './store/actionTypes'
 
 export default {
   name: 'counter',
@@ -22,16 +23,16 @@ export default {
   },
   methods: {
     increment () {
-      this.$store.commit('increment')
+      this.$store.commit(CounterActionTypes.INCREMENT)
       this.checkReset()
     },
     decrement () {
-      this.$store.commit('decrement')
+      this.$store.commit(CounterActionTypes.DECREMENT)
       this.checkReset()
     },
     checkReset () {
       if (this.count === 10) {
-        this.$store.commit('resetCounter')
+        this.$store.commit(CounterActionTypes.RESET_COUNTER)
       }
     }
   }

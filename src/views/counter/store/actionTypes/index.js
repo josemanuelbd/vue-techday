@@ -1,0 +1,5 @@
+export const CounterActionTypes = {
+  INCREMENT: 'INCREMENT',
+  DECREMENT: 'DECREMENT',
+  RESET_COUNTER: 'RESET_COUNTER'
+}

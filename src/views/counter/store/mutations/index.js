@@ -1,11 +1,13 @@
+import { CounterActionTypes } from '../actionTypes'
+
 export const CounterMutations = {
-  increment (state, payload) {
+  [CounterActionTypes.INCREMENT] (state, payload) {
     state.count = state.count + 1
   },
-  decrement (state, payload) {
+  [CounterActionTypes.DECREMENT] (state, payload) {
     state.count = state.count - 1
   },
-  resetCounter (state) {
+  [CounterActionTypes.RESET_COUNTER] (state) {
     state.count = 0
   }
 }
