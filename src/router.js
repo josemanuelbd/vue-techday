@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import CounterContainer from './views/CounterContainer.vue'
+import TodoContainer from './views/TodoContainer.vue'
 
 Vue.use(Router)
 
@@ -23,9 +23,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/counter',
-      name: 'counter',
-      component: CounterContainer
+      path: '/todos',
+      name: 'todos',
+      component: TodoContainer
     }
   ]
 })
