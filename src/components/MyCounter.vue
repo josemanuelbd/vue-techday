@@ -1,5 +1,5 @@
 <template>
-  <div class="my-counter">
+  <div>
     <button @click="decrement"> - </button>
     <span>{{ count }}</span>
     <button @click="increment"> + </button>
