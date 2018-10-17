@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import TodoContainer from './views/TodoContainer.vue'
+import TodosContainer from '@/views/todo/TodosContainer'
 
 Vue.use(Router)
 
@@ -25,7 +25,7 @@ export default new Router({
     {
       path: '/todos',
       name: 'todos',
-      component: TodoContainer
+      component: TodosContainer
     }
   ]
 })

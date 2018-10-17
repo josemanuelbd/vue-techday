@@ -15,27 +15,33 @@
 
 <script>
 import TodoItem from './TodoItem'
+import { mapGetters } from 'vuex'
+import { TodosActionTypes } from '@/views/todo/store/actionTypes'
 
 export default {
   name: 'todo-list',
   data: function () {
     return {
-      item: null,
-      todos: []
+      item: null
     }
   },
   components: {
     TodoItem
   },
+  computed: {
+    ...mapGetters([
+      'todos'
+    ])
+  },
   methods: {
     addItem (item) {
-      this.todos.push({ name: this.item, completed: false })
+      this.$store.commit(TodosActionTypes.ADD_ITEM, { name: this.item, completed: false })
     },
     completeItem (index) {
-      this.todos[index].completed = !this.todos[index].completed
+      this.$store.commit(TodosActionTypes.COMPLETE_ITEM, index)
     },
     removeItem (index) {
-      this.todos.splice(index, 1)
+      this.$store.commit(TodosActionTypes.REMOVE_ITEM, index)
     }
   }
 }
